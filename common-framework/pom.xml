@@ -10,7 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- common-framework下四个包版本保持一致,统一在这里定义,注意：这里修改后，四个pom里的parent也要修改 -->
-    <version>1.0-SNAPSHOT</version>
+    <!--本版本不和ln-common 公用-->
+    <version>1.0.0-SNAPSHOT</version>
     <artifactId>common-framework</artifactId>
     <packaging>pom</packaging>
 
@@ -22,5 +23,49 @@
         <module>common-framework-rpc</module>
         <module>common-framework-util</module>
     </modules>
+
+    <properties>
+        <common-framework-web.version>1.0.0-SNAPSHOT</common-framework-web.version>
+        <common-framework-pojo.version>1.0.0-SNAPSHOT</common-framework-pojo.version>
+        <common-framework-dao.version>1.0.0-SNAPSHOT</common-framework-dao.version>
+        <common-framework-service.version>1.0.0-SNAPSHOT</common-framework-service.version>
+        <common-framework-rpc.version>1.0.0-SNAPSHOT</common-framework-rpc.version>
+        <common-framework-util.version>1.0.0-SNAPSHOT</common-framework-util.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-web</artifactId>
+                <version>${common-framework-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-pojo</artifactId>
+                <version>${common-framework-pojo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-dao</artifactId>
+                <version>${common-framework-dao.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-service</artifactId>
+                <version>${common-framework-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-rpc</artifactId>
+                <version>${common-framework-rpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.ln</groupId>
+                <artifactId>common-framework-util</artifactId>
+                <version>${common-framework-util.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
