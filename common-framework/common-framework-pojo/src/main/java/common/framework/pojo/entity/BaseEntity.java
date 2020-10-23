@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @description 实体对象父类
+ * <p>Description: 实体对象父类 </p>
  * @author linan
  * @date 2020-07-23 16:28
  */

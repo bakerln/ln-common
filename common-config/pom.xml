@@ -9,7 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- common-config 版本变动少，其他模块各种维护各种的版本号 -->
+    <!--本版本不和ln-common 公用-->
+    <version>1.0.0-SNAPSHOT</version>
     <artifactId>common-config</artifactId>
+    <packaging>pom</packaging>
+
+
+
+    <modules>
+        <module>common-config-interceptor</module>
+    </modules>
+
+
+    <properties>
+        <common-config-interceptor.version>1.0.0-SNAPSHOT</common-config-interceptor.version>
+
+    </properties>
 
 
 </project>

@@ -11,5 +11,19 @@
 
     <artifactId>common-framework-util</artifactId>
 
+    <dependencies>
+        <!--数据对象工具-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!--日常转换工具，https://www.hutool.cn/docs-->
+        <!--增加provided范围，不允许子项目直接使用hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>

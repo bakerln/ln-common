@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @description 业务对象父类
+ * <p>Description: 业务对象父类 </p>
  * @author linan
  * @date 2020-07-23 16:30
  */
