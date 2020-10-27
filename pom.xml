@@ -184,7 +184,7 @@
                 <version>${hutool.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- swagger -->
+            <!-- springfox -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
