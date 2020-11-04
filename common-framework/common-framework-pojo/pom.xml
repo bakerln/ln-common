@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>common-framework</artifactId>
-        <groupId>cn.com.ln</groupId>
+        <groupId>cn.bread.framework</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -17,12 +17,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>cn.com.ln</groupId>
-            <artifactId>common-framework-util</artifactId>
-        </dependency>
-
         <!--工具依赖-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -31,6 +25,11 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.bread.framework</groupId>
+            <artifactId>common-framework-util</artifactId>
         </dependency>
     </dependencies>
 

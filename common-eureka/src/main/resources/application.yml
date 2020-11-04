@@ -1,0 +1,46 @@
+# 指定运行端口
+server:
+  port: 8000
+
+# 指定服务名称
+spring:
+  application:
+    name: eureka-server
+
+# 指定主机地址
+eureka:
+  datacenter: dev
+  environment: dev
+  instance:
+    hostname: localhost
+  client:
+    # 因为自己是为注册中心，不需要检索服务
+    fetch-registry: false
+    # 因为自己是为注册中心，不需要自己注册自己
+    register-with-eureka: false
+    # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    #定时检查服务心跳，每隔两秒检测一次。默认6000ms
+    eviction-interval-timer-in-ms: 2000
+    #关闭一级缓存，让客户端直接从二级缓存去读取，省去各缓存之间的同步的时间
+    use-read-only-response-cache: false
+    #过期服务保护。默认开启
+    enable-self-preservation: false
+
+
+
+
+
+
+#eureka.server.enable-self-preservation=false
+#eureka.server.responseCacheUpdateInvervalMs=3000
+#eureka.server.responseCacheAutoExpirationInSeconds=5
+#eureka.instance.lease-renewal-interval-in-seconds=1
+#eureka.client.registryFetchIntervalSeconds=5
+#ribbon.ServerListRefreshInterval=1000
+#eureka.instance.preferIpAddress=true
+#eureka.server.response-cache-update-interval-ms=3
+#eureka.server.response-cache-auto-expiration-in-seconds=3
+#eureka.server.use-read-only-response-cache=false

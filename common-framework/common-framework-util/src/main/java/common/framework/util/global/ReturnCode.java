@@ -22,14 +22,16 @@ public enum  ReturnCode {
      * http
      */
     HTTP_SUCCESS("00200", "请求成功！"),
-    HTTP_FAILED_BAD_REQUEST("00400", "请求错误!"),
-    HTTP_FAILED_NO_ACCESS("00403", "禁止访问!"),
-    HTTP_FAILED_URI_NOT_FOUND("00404", "请求路径不存在！"),
-    HTTP_FAILED_REQUEST_METHOD_ERROR("00405", "非法请求方式！"),
-    HTTP_FAILED_PARAMS_ERROR("00420", "参数格式错误"),
-    HTTP_FAILED_TOO_MANG_REQUESTS("00429", "限制访问！"),
     HTTP_FAILED_SERVER_ERROR("00500", "服务器异常，请稍后重试！"),
-    HTTP_FAILED_GATEWAY_TIMEOUT("00504", "网关超时!"),
+    HTTP_FAILED_BAD_REQUEST("00501", "请求错误!"),
+    HTTP_FAILED_NO_ACCESS("00503", "禁止访问!"),
+    HTTP_FAILED_URI_NOT_FOUND("00504", "请求路径不存在！"),
+    HTTP_FAILED_REQUEST_METHOD_ERROR("00505", "非法请求方式！"),
+    HTTP_FAILED_GATEWAY_TIMEOUT("00506", "网关超时!"),
+    HTTP_FAILED_PARAMS_ERROR("00520", "参数格式错误"),
+    HTTP_FAILED_TOO_MANG_REQUESTS("00529", "限制访问！"),
+
+
 
     /**
      * 业务状态
