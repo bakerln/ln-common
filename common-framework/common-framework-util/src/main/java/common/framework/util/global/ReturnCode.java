@@ -31,8 +31,6 @@ public enum  ReturnCode {
     HTTP_FAILED_PARAMS_ERROR("00520", "参数格式错误"),
     HTTP_FAILED_TOO_MANG_REQUESTS("00529", "限制访问！"),
 
-
-
     /**
      * 业务状态
      */
@@ -58,11 +56,10 @@ public enum  ReturnCode {
     STATE_APP_NOT_EXIST("00432", "小程序不存在"),
     STATE_FILE_NOT_EXIST("00633", "文件不存在");
 
-
     /**
      * 状态码
      */
-    final String returnCode;
+    final String code;
     /**
      * 信息
      */
@@ -72,8 +69,8 @@ public enum  ReturnCode {
      * <p>Description: 返回状态码 </p>
      * @return returnCode 状态码
      */
-    public String getReturnCode() {
-        return this.returnCode;
+    public String getCode() {
+        return this.code;
     }
 
     /**
@@ -86,11 +83,11 @@ public enum  ReturnCode {
 
     /**
      * 构造函数
-     * @param returnCode 状态码
+     * @param code 状态码
      * @param msg 信息
      */
-    private ReturnCode(String returnCode, String msg) {
-        this.returnCode = returnCode;
+    private ReturnCode(String code, String msg) {
+        this.code = code;
         this.msg = msg;
     }
 }

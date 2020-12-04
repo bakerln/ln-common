@@ -40,6 +40,10 @@
         <lombok.version>1.18.12</lombok.version>
         <hutool.version>4.5.16</hutool.version>
 
+        <!--数据库-->
+        <mysql-connector-java>6.0.6</mysql-connector-java>
+        <druid-spring-boot-starter>1.1.10</druid-spring-boot-starter>
+
         <!--plugins-->
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <maven.source.plugin>3.0.0</maven.source.plugin>
@@ -165,6 +169,22 @@
                 <scope>compile</scope>
             </dependency>
 
+            <!--数据库-->
+            <!--<dependency>-->
+                <!--<groupId>mysql</groupId>-->
+                <!--<artifactId>mysql-connector-java</artifactId>-->
+                <!--<version>${mysql-connector-java}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba</groupId>-->
+                <!--<artifactId>druid-spring-boot-starter</artifactId>-->
+                <!--<version>${druid-spring-boot-starter}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+                <!--<version>2.3.2.RELEASE</version>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -207,7 +227,26 @@
     </repositories>
 
     <build>
+        <!--<finalName>${project.artifactId}</finalName>-->
+        <!--配置文件中引用pom文件的数值-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+        <!--</resources>-->
         <plugins>
+            <!--配置文件中引用pom文件的数值-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-resources-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<delimiters>-->
+                        <!--<delimit>$</delimit>-->
+                    <!--</delimiters>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--编译版本-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -218,7 +257,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
             <!--源码打包-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -236,8 +274,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-
             <!--测试依赖-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -245,6 +281,7 @@
                 <version>${maven.surefire.plugin}</version>
                 <configuration>
                     <!--<skipTests>true</skipTests>-->
+                    <!--将参数传递给测试类-->
                     <systemPropertyVariables>
                         <swagger.output.file>${swagger.output.file}</swagger.output.file>
                     </systemPropertyVariables>

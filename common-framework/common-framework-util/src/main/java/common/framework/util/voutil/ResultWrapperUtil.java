@@ -23,7 +23,7 @@ public class ResultWrapperUtil {
         return new ResultWrapper(returnCode, t);
     }
     public static <T> ResultWrapper custom(ReturnCode returnCode, String msg) {
-        return new ResultWrapper(returnCode.getReturnCode(), msg);
+        return new ResultWrapper(returnCode.getCode(), msg);
     }
     public static <T> ResultWrapper custom(String returnCode, String msg, T t) {
         return new ResultWrapper(returnCode, msg, t);
