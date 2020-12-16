@@ -3,6 +3,7 @@ package common.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * <p>Description:  网关启动</p>
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author linan
  * @date 2020-11-03
  */
+@EnableEurekaClient
 @SpringBootApplication
 public class GatewayAppApplication {
 

@@ -1,37 +1,3 @@
-# 指定运行端口
-server:
-  port: 8760
-
-# 指定服务名称
 spring:
-  application:
-    name: common-gateway
-
-eureka:
-   instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}-${eureka.instance.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
-  client:
-    fetch-registry: false
-    register-with-eureka: false
-    healthcheck:
-      enabled: true
-    # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址
-    service-url:
-    # registerWithEureka关闭后，defaultZone没有配置的必要。如果打开，即使配置为本机一样报错。
-    # 也就是说defaultZone任何时候都没有配置为localhost的必要。
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-  server:
-    enable-self-preservation: true
-    renewal-percent-threshold: 0.85
-    # 在服务器接收请求之前等待的初始时间，默认等待5min
-    wait-time-in-ms-when-sync-empty: 5
-    response-cache-update-interval-ms: 3000
-    response-cache-auto-expiration-in-seconds: 180
-    # 启用主动检查服务心跳失效，并且每次主动失效检测间隔为2s，6s无心跳后删除。
-    eviction-interval-timer-in-ms: 6000
-    use-read-only-response-cache: false
-
+  profiles:
+    active: dev
