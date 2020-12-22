@@ -11,14 +11,26 @@ spring:
   cloud:
     gateway:
       routes:
-       - id: gateway-service
-         url: https://blog.csdn.net
+       - id: gateway-service0
+         # lb代表从注册中心获取服务
+#         uri: lb://OLOAN-FINANCIAL-PRODUCT-SERVICE
+         uri: https://www.zhihu.com
          predicates:
-          - Path=/index
+          # 转发该路径
+            - Path=/index
+         # 带前缀
+         filters:
+#                忽略1级前缀
+          - StripPrefix=1
+       - id: gateway-service1
+         uri: https://www.taobao.com
+         predicates:
+          - Header=appid
+          - Method=post
 
 eureka:
    instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.int[1,9]}}--${project.version}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.int[1,9]}}--${spring.application.version}
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
