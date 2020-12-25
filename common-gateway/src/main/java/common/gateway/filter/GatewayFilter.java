@@ -15,7 +15,6 @@ import reactor.core.publisher.Mono;
  * @date 2020-11-03
  */
 
-@Component
 public class GatewayFilter implements GlobalFilter,Ordered {
 
     Logger logger = LoggerFactory.getLogger(GatewayFilter.class);

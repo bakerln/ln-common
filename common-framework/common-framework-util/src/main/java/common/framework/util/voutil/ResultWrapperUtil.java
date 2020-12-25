@@ -15,18 +15,18 @@ public class ResultWrapperUtil {
     /**
      * 自定义访问
      * @param returnCode ReturnCode
-     * @param t 数据对象
+     * @param data 数据对象
      * @param <T> 泛型
      * @return ResultWrapper
      */
-    public static <T> ResultWrapper custom(ReturnCode returnCode, T t) {
-        return new ResultWrapper(returnCode, t);
+    public static <T> ResultWrapper custom(ReturnCode returnCode, T data) {
+        return new ResultWrapper(returnCode, data);
     }
     public static <T> ResultWrapper custom(ReturnCode returnCode, String msg) {
         return new ResultWrapper(returnCode.getCode(), msg);
     }
-    public static <T> ResultWrapper custom(String returnCode, String msg, T t) {
-        return new ResultWrapper(returnCode, msg, t);
+    public static <T> ResultWrapper custom(String returnCode, String msg, T data) {
+        return new ResultWrapper(returnCode, msg, data);
     }
 
     /**
@@ -36,12 +36,12 @@ public class ResultWrapperUtil {
         return new ResultWrapper(ReturnCode.HTTP_SUCCESS);
     }
 
-    public static <T> ResultWrapper success(T t) {
-        return new ResultWrapper(ReturnCode.HTTP_SUCCESS, t);
+    public static <T> ResultWrapper success(T data) {
+        return new ResultWrapper(ReturnCode.HTTP_SUCCESS, data);
     }
 
-    public static <T> ResultWrapper success(String msg, T t) {
-        return new ResultWrapper(ReturnCode.HTTP_SUCCESS, msg, t);
+    public static <T> ResultWrapper success(String msg, T data) {
+        return new ResultWrapper(ReturnCode.HTTP_SUCCESS, msg, data);
     }
 
 
@@ -56,8 +56,8 @@ public class ResultWrapperUtil {
         return new ResultWrapper(ReturnCode.HTTP_FAILED_SERVER_ERROR, msg);
     }
 
-    public static <T> ResultWrapper serverError(T t) {
-        return new ResultWrapper(ReturnCode.HTTP_FAILED_SERVER_ERROR, t);
+    public static <T> ResultWrapper serverError(T data) {
+        return new ResultWrapper(ReturnCode.HTTP_FAILED_SERVER_ERROR, data);
     }
     public static <E> ResultWrapper<E> serverError(Exception exception) {
         return new ResultWrapper<E>(ReturnCode.HTTP_FAILED_SERVER_ERROR, exception.getMessage(), null);
@@ -74,8 +74,8 @@ public class ResultWrapperUtil {
         return new ResultWrapper(ReturnCode.BIZ_OPERATION_ERROR, msg);
     }
 
-    public static <T> ResultWrapper bizError(String msg,T t) {
-        return new ResultWrapper(ReturnCode.BIZ_OPERATION_ERROR, msg, t);
+    public static <T> ResultWrapper bizError(String msg,T data) {
+        return new ResultWrapper(ReturnCode.BIZ_OPERATION_ERROR, msg, data);
     }
 
     public static <E> ResultWrapper<E> bizError(Exception exception) {
@@ -86,11 +86,11 @@ public class ResultWrapperUtil {
     /**
      * 根据Boolean来判断返回是否成功
      */
-    public static <T> ResultWrapper successOrError(boolean flag, String msg, T t){
+    public static <T> ResultWrapper successOrError(boolean flag, String msg, T data){
         if(flag){
-            return new ResultWrapper(ReturnCode.HTTP_SUCCESS, msg, t);
+            return new ResultWrapper(ReturnCode.HTTP_SUCCESS, msg, data);
         }else{
-            return new ResultWrapper(ReturnCode.BIZ_OPERATION_ERROR, msg, t);
+            return new ResultWrapper(ReturnCode.BIZ_OPERATION_ERROR, msg, data);
         }
     }
 

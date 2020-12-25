@@ -5,29 +5,39 @@ server:
 # 指定服务名称
 spring:
   application:
-    name: common-gateway
+    name: COMMON-GATEWAY
     description: 微服务网关
     version: 1.0.0-SNAPSHOT
   cloud:
     gateway:
       routes:
-       - id: gateway-service0
+        - id: gateway-service0
          # lb代表从注册中心获取服务
 #         uri: lb://OLOAN-FINANCIAL-PRODUCT-SERVICE
-         uri: https://www.zhihu.com
-         predicates:
-          # 转发该路径
+          uri: https://www.baidu.com
+          predicates:
             - Path=/index
-         # 带前缀
-         filters:
-#                忽略1级前缀
-          - StripPrefix=1
-       - id: gateway-service1
-         uri: https://www.taobao.com
-         predicates:
-          - Header=appid
-          - Method=post
+          filters:
+            - StripPrefix=1
 
+        - id: gateway-service1
+         # lb代表从注册中心获取服务
+          uri: lb://EXAMPLES-SPRINGBOOT
+          predicates:
+            - Path=/gateway/**
+          filters:
+            - StripPrefix=1
+
+        - id: gateway-service2
+          uri: lb://EXAMPLE-CUSTOMER
+#          uri: https://127.0.0.1:9081
+          predicates:
+             - Path=/gateway/foodOperation/**
+          filters:
+             - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
 eureka:
    instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.int[1,9]}}--${spring.application.version}
@@ -50,15 +60,13 @@ management:
     redis:
       enabled: false
     db:
-      enabled: true
+      enabled: false
   endpoint:
     health:
       show-details: always
       enabled: true
     httptrace:
       enabled: true
-  server:
-    port: 8762
 
 #actuator info
 info:
