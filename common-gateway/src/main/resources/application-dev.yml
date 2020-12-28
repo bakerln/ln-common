@@ -1,8 +1,6 @@
-# 指定运行端口
 server:
   port: 8760
 
-# 指定服务名称
 spring:
   application:
     name: COMMON-GATEWAY
@@ -11,17 +9,16 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: gateway-service0
-         # lb代表从注册中心获取服务
-#         uri: lb://OLOAN-FINANCIAL-PRODUCT-SERVICE
-          uri: https://www.baidu.com
-          predicates:
-            - Path=/index
-          filters:
-            - StripPrefix=1
+#        - id: gateway-service0
+#         # lb代表从注册中心获取服务
+##         uri: lb://OLOAN-FINANCIAL-PRODUCT-SERVICE
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Path=/index
+#          filters:
+#            - StripPrefix=1
 
         - id: gateway-service1
-         # lb代表从注册中心获取服务
           uri: lb://EXAMPLES-SPRINGBOOT
           predicates:
             - Path=/gateway/**
@@ -30,7 +27,6 @@ spring:
 
         - id: gateway-service2
           uri: lb://EXAMPLE-CUSTOMER
-#          uri: https://127.0.0.1:9081
           predicates:
              - Path=/gateway/foodOperation/**
           filters:
@@ -38,6 +34,7 @@ spring:
       discovery:
         locator:
           enabled: true
+
 eureka:
    instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.int[1,9]}}--${spring.application.version}

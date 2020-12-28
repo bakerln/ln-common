@@ -50,6 +50,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider{
             }
 
         }
+        //可手动配置Resource list
         return resources;
     }
 
