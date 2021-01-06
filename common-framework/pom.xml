@@ -39,37 +39,37 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-web</artifactId>
                 <version>${common-framework-web.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-pojo</artifactId>
                 <version>${common-framework-pojo.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-dao</artifactId>
                 <version>${common-framework-dao.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-service</artifactId>
                 <version>${common-framework-service.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-rpc</artifactId>
                 <version>${common-framework-rpc.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-util</artifactId>
                 <version>${common-framework-util.version}</version>
             </dependency>
             <dependency>
-                <groupId>cn.bread.framework</groupId>
+                <groupId>com.github.bakerln.framework</groupId>
                 <artifactId>common-framework-cloud</artifactId>
                 <version>${common-framework-cloud.version}</version>
             </dependency>
