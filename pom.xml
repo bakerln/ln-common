@@ -7,7 +7,42 @@
     <groupId>com.github.bakerln</groupId>
     <artifactId>ln-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
+    <url>https://github.com/bakerln/ln-common</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Linan</name>
+            <email>linan.groot@outlook.com</email>
+            <organization>CARS</organization>
+            <roles>
+                <role>Project lead</role>
+            </roles>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/bakerln/ln-common.git</connection>
+        <url>git:https://github.com/bakerln/ln-common</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
+
+
 
     <modules>
         <module>common-eureka</module>
@@ -28,22 +63,17 @@
         <!--springcloud基础配置-->
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
         <!--<eureka-server.version>1.4.7.RELEASE</eureka-server.version>-->
-
         <!-- spring基础依赖版本 -->
         <spring.version>5.2.8.RELEASE</spring.version>
-
         <!--工具依赖-->
         <swagger.version>2.9.2</swagger.version>
         <swagger.markup>1.3.3</swagger.markup>
         <swagger.ui>1.9.6</swagger.ui>
-
         <lombok.version>1.18.12</lombok.version>
         <hutool.version>4.5.16</hutool.version>
-
         <!--数据库-->
         <mysql-connector-java>6.0.6</mysql-connector-java>
         <druid-spring-boot-starter>1.1.10</druid-spring-boot-starter>
-
         <!--plugins-->
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <maven.source.plugin>3.0.0</maven.source.plugin>
@@ -53,13 +83,11 @@
         <asciidoctor.maven.plugin>1.5.6</asciidoctor.maven.plugin>
         <asciidoctorj.pdf>1.5.0-alpha.16</asciidoctorj.pdf>
         <jruby.complete>1.7.21</jruby.complete>
-
         <!--定义参数-->
         <swagger.output.file>${project.build.directory}/swagger/adoc/InfaceDocument</swagger.output.file>
         <swagger.output.dir>${project.build.directory}/swagger/adoc</swagger.output.dir>
         <swagger.output.pdf.dir>${project.build.directory}/swagger/pdf</swagger.output.pdf.dir>
         <swagger.output.html.dir>${project.build.directory}/swagger/html</swagger.output.html.dir>
-
         <charset>UTF-8</charset>
     </properties>
 
@@ -73,27 +101,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-
             </dependency>
-            <!-- spring Cloud-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
-                <!--<version>${eureka-server.version}</version>-->
-            <!--</dependency>-->
             <!--<dependency>-->
                 <!--<groupId>org.springframework.cloud</groupId>-->
                 <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
@@ -118,13 +132,6 @@
                 <!--<version>${spring-cloud.version}</version>-->
                 <!--<type>pom</type>-->
             <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-gateway-dependencies</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
-
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -169,7 +176,6 @@
                 <version>${swagger.markup}</version>
                 <scope>compile</scope>
             </dependency>
-
             <!--数据库-->
             <!--<dependency>-->
                 <!--<groupId>mysql</groupId>-->
@@ -201,7 +207,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-
         <repository>
             <id>jcentral</id>
             <name>bintray</name>
@@ -213,7 +218,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-
         <repository>
             <id>jcenter-snapshots</id>
             <name>jcenter</name>
@@ -226,7 +230,6 @@
             </snapshots>
         </repository>
     </repositories>
-
     <build>
         <!--<finalName>${project.artifactId}</finalName>-->
         <!--配置文件中引用pom文件的数值-->
@@ -288,7 +291,6 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
-
             <!-- Run the generated asciidoc through Asciidoctor to generate
                 other documentation types, such as PDFs or HTML5 -->
             <plugin>
@@ -337,7 +339,6 @@
                             <outputDirectory>${swagger.output.html.dir}</outputDirectory>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>output-pdf</id>
                         <phase>test</phase>
@@ -349,10 +350,8 @@
                             <outputDirectory>${swagger.output.pdf.dir}</outputDirectory>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
-
             <!--依赖隔离-->
             <!--<plugin>-->
                 <!--<groupId>org.apache.maven.plugins</groupId>-->
@@ -375,39 +374,52 @@
                     <!--</execution>-->
                 <!--</executions>-->
             <!--</plugin>-->
-
             <!--doc文档-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<version>${maven.javadoc.plugin}</version>-->
-                <!--<configuration>-->
-                    <!--<encoding>${charset}</encoding>-->
-                    <!--<aggregate>true</aggregate>-->
-                    <!--<charset>${charset}</charset>-->
-                    <!--<docencoding>${charset}</docencoding>-->
-                    <!--&lt;!&ndash; jdk1.8要加上，1.7要去掉，否则会报错 &ndash;&gt;-->
-                    <!--<additionalJOptions>-->
-                        <!--<additionalJOption>-Xdoclint:none</additionalJOption>-->
-                    <!--</additionalJOptions>-->
-                    <!--&lt;!&ndash;增加date标签&ndash;&gt;-->
-                    <!--<tags>-->
-                        <!--<tag>-->
-                            <!--<name>date</name>-->
-                            <!--<placement>a</placement>-->
-                        <!--</tag>-->
-                    <!--</tags>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>attach-javadocs</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.plugin}</version>
+                <configuration>
+                    <encoding>${charset}</encoding>
+                    <aggregate>true</aggregate>
+                    <charset>${charset}</charset>
+                    <docencoding>${charset}</docencoding>
+                    <!-- jdk1.8要加上，1.7要去掉，否则会报错 -->
+                    <additionalJOptions>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                    </additionalJOptions>
+                    <!--增加date标签-->
+                    <tags>
+                        <tag>
+                            <name>date</name>
+                            <placement>a</placement>
+                        </tag>
+                    </tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

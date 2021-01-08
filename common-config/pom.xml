@@ -5,13 +5,13 @@
     <parent>
         <artifactId>ln-common</artifactId>
         <groupId>com.github.bakerln</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0-RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <!-- common-swagger 版本变动少，其他模块各种维护各种的版本号 -->
     <!--本版本不和ln-common 公用-->
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <artifactId>common-config</artifactId>
     <packaging>pom</packaging>
 
@@ -23,7 +23,7 @@
 
 
     <properties>
-        <common-config-interceptor.version>1.0.0-SNAPSHOT</common-config-interceptor.version>
+        <common-config-interceptor.version>1.0.0-RELEASE</common-config-interceptor.version>
 
     </properties>
 
