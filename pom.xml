@@ -34,24 +34,13 @@
         <url>git:https://github.com/bakerln/ln-common</url>
     </scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>releases</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
-
     <modules>
-        <!--<module>common-eureka</module>-->
+        <module>common-eureka</module>
         <module>common-framework</module>
-        <!--<module>common-redis</module>-->
-        <!--<module>common-config</module>-->
-        <!--<module>common-i18n</module>-->
-        <!--<module>common-gateway</module>-->
+        <module>common-redis</module>
+        <module>common-config</module>
+        <module>common-i18n</module>
+        <module>common-gateway</module>
     </modules>
 
     <properties>
@@ -62,7 +51,6 @@
         <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
         <!--springcloud基础配置-->
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
-        <!--<eureka-server.version>1.4.7.RELEASE</eureka-server.version>-->
         <!-- spring基础依赖版本 -->
         <spring.version>5.2.8.RELEASE</spring.version>
         <!--工具依赖-->
@@ -110,30 +98,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-sleuth-dependencies</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
-            <!--</dependency>-->
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -245,23 +209,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <!--源码打包-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven.source.plugin}</version>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <!--测试依赖-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -336,58 +283,89 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--doc文档-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.plugin}</version>
-                <configuration>
-                    <encoding>${charset}</encoding>
-                    <aggregate>true</aggregate>
-                    <charset>${charset}</charset>
-                    <docencoding>${charset}</docencoding>
-                    <!--&lt;!&ndash; jdk1.8要加上，1.7要去掉，否则会报错 &ndash;&gt;-->
-                    <!--<additionalJOptions>-->
-                    <!--<additionalJOption>-Xdoclint:none</additionalJOption>-->
-                    <!--</additionalJOptions>-->
-                    <!--增加date标签-->
-                    <tags>
-                        <tag>
-                            <name>date</name>
-                            <placement>a</placement>
-                        </tag>
-                    </tags>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- GPG -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>releases</id>
-
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>releases</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <!--源码打包-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven.source.plugin}</version>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!--doc文档-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven.javadoc.plugin}</version>
+                        <configuration>
+                            <encoding>${charset}</encoding>
+                            <aggregate>true</aggregate>
+                            <charset>${charset}</charset>
+                            <docencoding>${charset}</docencoding>
+                            <!--&lt;!&ndash; jdk1.8要加上，1.7要去掉，否则会报错 &ndash;&gt;-->
+                            <!--<additionalJOptions>-->
+                            <!--<additionalJOption>-Xdoclint:none</additionalJOption>-->
+                            <!--</additionalJOptions>-->
+                            <!--增加date标签-->
+                            <tags>
+                                <tag>
+                                    <name>date</name>
+                                    <placement>a</placement>
+                                </tag>
+                            </tags>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
