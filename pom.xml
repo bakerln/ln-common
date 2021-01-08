@@ -84,45 +84,45 @@
             </dependency>
             <!-- spring Cloud-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
-                <!--<version>${eureka-server.version}</version>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
+            <!--<version>${eureka-server.version}</version>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-sleuth-dependencies</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-sleuth-dependencies</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.cloud</groupId>-->
-                <!--<artifactId>spring-cloud-gateway-dependencies</artifactId>-->
-                <!--<version>${spring-cloud.version}</version>-->
-                <!--<type>pom</type>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-gateway-dependencies</artifactId>-->
+            <!--<version>${spring-cloud.version}</version>-->
+            <!--<type>pom</type>-->
             <!--</dependency>-->
 
             <!-- lombok -->
@@ -172,19 +172,19 @@
 
             <!--数据库-->
             <!--<dependency>-->
-                <!--<groupId>mysql</groupId>-->
-                <!--<artifactId>mysql-connector-java</artifactId>-->
-                <!--<version>${mysql-connector-java}</version>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>${mysql-connector-java}</version>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>com.alibaba</groupId>-->
-                <!--<artifactId>druid-spring-boot-starter</artifactId>-->
-                <!--<version>${druid-spring-boot-starter}</version>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>druid-spring-boot-starter</artifactId>-->
+            <!--<version>${druid-spring-boot-starter}</version>-->
             <!--</dependency>-->
             <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-starter-data-jdbc</artifactId>-->
-                <!--<version>2.3.2.RELEASE</version>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+            <!--<version>2.3.2.RELEASE</version>-->
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
@@ -231,21 +231,21 @@
         <!--<finalName>${project.artifactId}</finalName>-->
         <!--配置文件中引用pom文件的数值-->
         <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<filtering>true</filtering>-->
-            <!--</resource>-->
+        <!--<resource>-->
+        <!--<directory>src/main/resources</directory>-->
+        <!--<filtering>true</filtering>-->
+        <!--</resource>-->
         <!--</resources>-->
         <plugins>
             <!--配置文件中引用pom文件的数值-->
             <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-resources-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<delimiters>-->
-                        <!--<delimit>$</delimit>-->
-                    <!--</delimiters>-->
-                <!--</configuration>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-resources-plugin</artifactId>-->
+            <!--<configuration>-->
+            <!--<delimiters>-->
+            <!--<delimit>$</delimit>-->
+            <!--</delimiters>-->
+            <!--</configuration>-->
             <!--</plugin>-->
             <!--编译版本-->
             <plugin>
@@ -257,23 +257,6 @@
                     <target>${maven.compiler.target}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
-            <!--源码打包-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven.source.plugin}</version>
-                <configuration>
-                    <attach>true</attach>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <!--测试依赖-->
             <plugin>
@@ -349,65 +332,8 @@
                             <outputDirectory>${swagger.output.pdf.dir}</outputDirectory>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
-
-            <!--依赖隔离-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-shade-plugin</artifactId>-->
-                <!--<version>3.1.1</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>shade</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<relocations>-->
-                                <!--<relocation>-->
-                                    <!--<pattern>cn.hutool.json</pattern>-->
-                                    <!--<shadedPattern>com.cn.ln.json</shadedPattern>-->
-                                <!--</relocation>-->
-                            <!--</relocations>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-
-            <!--doc文档-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<version>${maven.javadoc.plugin}</version>-->
-                <!--<configuration>-->
-                    <!--<encoding>${charset}</encoding>-->
-                    <!--<aggregate>true</aggregate>-->
-                    <!--<charset>${charset}</charset>-->
-                    <!--<docencoding>${charset}</docencoding>-->
-                    <!--&lt;!&ndash; jdk1.8要加上，1.7要去掉，否则会报错 &ndash;&gt;-->
-                    <!--<additionalJOptions>-->
-                        <!--<additionalJOption>-Xdoclint:none</additionalJOption>-->
-                    <!--</additionalJOptions>-->
-                    <!--&lt;!&ndash;增加date标签&ndash;&gt;-->
-                    <!--<tags>-->
-                        <!--<tag>-->
-                            <!--<name>date</name>-->
-                            <!--<placement>a</placement>-->
-                        <!--</tag>-->
-                    <!--</tags>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>attach-javadocs</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 </project>
