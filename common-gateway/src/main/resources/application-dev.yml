@@ -21,16 +21,16 @@ spring:
         - id: gateway-service1
           uri: lb://EXAMPLES-SPRINGBOOT
           predicates:
-            - Path=/gateway/**
+            - Path=/gateway/examples-springboot/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2
 
         - id: gateway-service2
           uri: lb://EXAMPLE-CUSTOMER
           predicates:
-             - Path=/gateway/foodOperation/**
+             - Path=/gateway/example-customer/**
           filters:
-             - StripPrefix=1
+             - StripPrefix=2
       discovery:
         locator:
           enabled: true
