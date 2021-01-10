@@ -26,11 +26,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
-
+        <!--validation-->
         <dependency>
-            <groupId>com.github.bakerln.framework</groupId>
-            <artifactId>common-framework-util</artifactId>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>
