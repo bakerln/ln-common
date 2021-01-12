@@ -1,4 +1,4 @@
-package common.framework.util.global;
+package common.framework.global;
 
 /**
  * <p>Description: 全局状态码-枚举类型</p>
