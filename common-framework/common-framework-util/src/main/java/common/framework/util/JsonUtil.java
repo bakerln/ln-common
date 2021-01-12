@@ -1,4 +1,4 @@
-package common.framework.util.jsonutil;
+package common.framework.util;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.*;

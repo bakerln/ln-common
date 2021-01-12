@@ -1,7 +1,7 @@
-package common.framework.util.voutil;
+package common.framework.wrapper;
 
-import common.framework.util.global.ReturnCode;
-import common.framework.util.jsonutil.JsonUtil;
+import common.framework.global.ReturnCode;
+import common.framework.util.JsonUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

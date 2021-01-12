@@ -1,6 +1,6 @@
-package common.framework.util.voutil;
+package common.framework.wrapper;
 
-import common.framework.util.global.ReturnCode;
+import common.framework.global.ReturnCode;
 
 /**
  *
