@@ -38,7 +38,7 @@
         <swagger.ui>1.9.6</swagger.ui>
 
         <lombok.version>1.18.12</lombok.version>
-        <hutool.version>4.5.16</hutool.version>
+        <hutool.version>5.5.7</hutool.version>
 
         <!--数据库-->
         <mysql-connector-java>6.0.6</mysql-connector-java>
@@ -342,19 +342,6 @@
                             <backend>pdf</backend>
                             <outputDirectory>${swagger.output.pdf.dir}</outputDirectory>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--打部署包-->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
