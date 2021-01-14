@@ -12,7 +12,6 @@
     <modules>
         <module>common-eureka</module>
         <module>common-framework</module>
-        <module>common-redis</module>
         <module>common-config</module>
         <module>common-i18n</module>
         <module>common-gateway</module>

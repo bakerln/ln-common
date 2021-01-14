@@ -1,6 +1,8 @@
 package common.framework.cache;
 
 import cn.hutool.cache.impl.LRUCache;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>Description: LRU (least recently used)最近最久未使用缓存</p>
@@ -8,13 +10,18 @@ import cn.hutool.cache.impl.LRUCache;
  * @author linan
  * @date 2021-01-12
  */
+@Component
 public class LruCache extends LRUCache {
 
-    public LruCache(int capacity) {
+    public LruCache(){
+        super(0);
+    }
+
+    public LruCache(@Value("${spring.cache.capacity}")int capacity) {
         super(capacity);
     }
 
-    public LruCache(int capacity, long timeout) {
+    public LruCache(@Value("${spring.cache.capacity}")int capacity, @Value("${spring.cache.timeout}")long timeout) {
         super(capacity, timeout);
     }
 }
