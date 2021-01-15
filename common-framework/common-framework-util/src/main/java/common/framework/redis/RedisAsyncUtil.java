@@ -1,27 +1,27 @@
 package common.framework.redis;
 
 import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisFuture;
 import io.lettuce.core.RedisURI;
 import io.lettuce.core.SetArgs;
 import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
+import io.lettuce.core.api.async.RedisAsyncCommands;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
- * <p>Description: Sync Redis Util</p>
+ * <p>Description: 异步Redis Util</p>
  *
  * @author linan
- * @date 2021-01-14
+ * @date 2021-01-15
  */
 @Component
-public class RedisSyncUtil {
+public class RedisAsyncUtil {
 
-    private RedisCommands redisCommands;
+    private RedisAsyncCommands redisAsyncCommands;
 
     private int timeout;
 
@@ -31,9 +31,9 @@ public class RedisSyncUtil {
      * @param port port
      * @param timeout  expire time in seconds
      */
-    public RedisSyncUtil (@Value("${spring.redis.hosturl}")String url,
-                                       @Value("${spring.redis.ports}")int port,
-                                       @Value("${spring.redis.expire}")int timeout){
+    public RedisAsyncUtil (@Value("${spring.redis.hosturl}")String url,
+                          @Value("${spring.redis.ports}")int port,
+                          @Value("${spring.redis.expire}")int timeout){
         RedisURI redisUri = RedisURI.builder()
                 .withHost(url)
                 .withPort(port)
@@ -47,7 +47,7 @@ public class RedisSyncUtil {
         }
         RedisClient redisClient = RedisClient.create(redisUri);
         StatefulRedisConnection<String, String> connection = redisClient.connect();
-        this.redisCommands = connection.sync();
+        this.redisAsyncCommands = connection.async();
     }
 
     /**
@@ -55,8 +55,8 @@ public class RedisSyncUtil {
      * @param key
      * @return
      */
-    public Object  get(String key){
-        return redisCommands.get(key);
+    public RedisFuture get(String key){
+        return redisAsyncCommands.get(key);
     }
 
     /**
@@ -65,9 +65,9 @@ public class RedisSyncUtil {
      * @param value values
      * @param timeout expire time in seconds
      */
-    public void set(String key,Object value,int timeout){
+    public RedisFuture<String> set(String key,Object value,int timeout){
         SetArgs setArgs = SetArgs.Builder.nx().ex(timeout);
-        redisCommands.set(key, value, setArgs);
+        return redisAsyncCommands.set(key, value, setArgs);
     }
 
     /**
@@ -75,12 +75,12 @@ public class RedisSyncUtil {
      * @param key   key
      * @param value values
      */
-    public void set(String key,Object value){
+    public RedisFuture<String> set(String key,Object value){
         if (0 != timeout){
             SetArgs setArgs = SetArgs.Builder.nx().ex(timeout);
-            redisCommands.set(key, value, setArgs);
+            return redisAsyncCommands.set(key, value, setArgs);
         }else {
-            redisCommands.set(key, value);
+            return redisAsyncCommands.set(key, value);
         }
 
     }
@@ -89,8 +89,8 @@ public class RedisSyncUtil {
      * delete key
      * @param keys keys
      */
-    public void delete(Object... keys){
-        redisCommands.del(keys);
+    public RedisFuture<Long> delete(Object... keys){
+        return redisAsyncCommands.del(keys);
     }
 
     /**
@@ -98,8 +98,8 @@ public class RedisSyncUtil {
      * @param key key
      * @param timeout timeout in second
      */
-    public void expire(Object key,long timeout){
-        redisCommands.expire(key,timeout);
+    public RedisFuture<Boolean> expire(Object key,long timeout){
+        return redisAsyncCommands.expire(key,timeout);
     }
 
     /**
@@ -107,9 +107,8 @@ public class RedisSyncUtil {
      * @param pattern 正则表达式
      * @return list
      */
-    public List<String> getKeyList(String pattern){
-        return redisCommands.keys(pattern);
+    public RedisFuture<List> getKeyList(String pattern){
+        return redisAsyncCommands.keys(pattern);
     }
-
 
 }
