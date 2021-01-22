@@ -17,6 +17,7 @@ spring:
 #            - Path=/index
 #          filters:
 #            - StripPrefix=1
+
         - id: gateway-service1
           uri: lb://EXAMPLES-SPRINGBOOT
           predicates:
@@ -30,15 +31,6 @@ spring:
              - Path=/gateway/example-customer/**
           filters:
              - StripPrefix=2
-
-        - id: gateway-service3
-          uri: lb://EXAMPLE-PRODUCTOR
-          predicates:
-            - Path=/gateway/example-productor/**
-          filters:
-            - StripPrefix=2
-
-
       discovery:
         locator:
           enabled: true

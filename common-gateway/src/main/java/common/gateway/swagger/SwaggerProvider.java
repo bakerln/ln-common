@@ -3,6 +3,7 @@ package common.gateway.swagger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
@@ -19,6 +20,7 @@ import java.util.Set;
  * @date 2020-12-25
  */
 @Component
+@Profile("dev")
 public class SwaggerProvider implements SwaggerResourcesProvider{
 
     private static final String SWAGGER2URL = "/v2/api-docs";

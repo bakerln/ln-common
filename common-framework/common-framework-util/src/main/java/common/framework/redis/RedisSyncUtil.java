@@ -23,6 +23,10 @@ public class RedisSyncUtil {
 
     private RedisCommands redisCommands;
 
+    private StatefulRedisConnection<String, String> statefulRedisConnection;
+
+    private RedisClient redisClient;
+
     private int timeout;
 
     /**
@@ -45,9 +49,9 @@ public class RedisSyncUtil {
             redisUri.setTimeout(Duration.ofSeconds(timeout, 0));
             this.timeout = timeout;
         }
-        RedisClient redisClient = RedisClient.create(redisUri);
-        StatefulRedisConnection<String, String> connection = redisClient.connect();
-        this.redisCommands = connection.sync();
+        this.redisClient = RedisClient.create(redisUri);
+        this.statefulRedisConnection = redisClient.connect();
+        this.redisCommands = statefulRedisConnection.sync();
     }
 
     /**
@@ -82,7 +86,6 @@ public class RedisSyncUtil {
         }else {
             redisCommands.set(key, value);
         }
-
     }
 
     /**
@@ -111,5 +114,11 @@ public class RedisSyncUtil {
         return redisCommands.keys(pattern);
     }
 
-
+    /**
+     * shutdown
+     */
+    public void shutdown(){
+        this.statefulRedisConnection.close();
+        this.redisClient.shutdown();
+    }
 }

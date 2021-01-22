@@ -24,6 +24,7 @@ public class GatewayFilter implements GlobalFilter,Ordered {
         String requestUrl = exchange.getRequest().getPath().pathWithinApplication().toString();
         logger.error("gateway 转发url {}",requestUrl);
         return chain.filter(exchange);
+
     }
 
 
