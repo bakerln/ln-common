@@ -6,6 +6,9 @@ spring:
     name: COMMON-GATEWAY
     description: 微服务网关
     version: 1.0.0-SNAPSHOT
+  cache:
+    timeout: 2000
+    capacity: 2
   cloud:
     gateway:
       routes:
@@ -37,11 +40,12 @@ spring:
             - Path=/gateway/example-productor/**
           filters:
             - StripPrefix=2
-
-
       discovery:
         locator:
           enabled: true
+      # 不判断权限uri
+      permitUrl: /auth/login,/auth/createToken,
+
 
 eureka:
    instance:
@@ -79,5 +83,7 @@ info:
     name:  ${spring.application.name}
     description: ${spring.application.description}
     version: ${spring.application.version}
+
+
 
 

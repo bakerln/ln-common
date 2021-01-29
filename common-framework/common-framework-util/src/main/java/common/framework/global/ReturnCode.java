@@ -28,7 +28,7 @@ public enum  ReturnCode {
     HTTP_FAILED_URI_NOT_FOUND("00504", "请求路径不存在！"),
     HTTP_FAILED_REQUEST_METHOD_ERROR("00505", "非法请求方式！"),
     HTTP_FAILED_GATEWAY_TIMEOUT("00506", "网关超时!"),
-    HTTP_FAILED_PARAMS_ERROR("00520", "参数格式错误"),
+    HTTP_FAILED_PARAMS_ERROR("00520", "参数错误"),
     HTTP_FAILED_TOO_MANG_REQUESTS("00529", "限制访问！"),
 
     /**
