@@ -22,5 +22,19 @@
         </mirror>
     </mirrors>
 
+    <servers>
+        <server>
+            <id>snapshots</id>
+            <username>linan</username>
+            <password>Briareosln911026!</password>
+        </server>
+
+        <server>
+            <id>releases</id>
+            <username>linan</username>
+            <password>Briareosln911026!</password>
+        </server>
+    </servers>
+
 
 </settings>
