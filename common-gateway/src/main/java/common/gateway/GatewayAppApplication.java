@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @author linan
  * @date 2020-11-03
  */
-@SpringBootApplication(scanBasePackages = {"common.gateway","common.framework.cache"})
+@SpringBootApplication
 @EnableEurekaClient
 public class GatewayAppApplication {
 
