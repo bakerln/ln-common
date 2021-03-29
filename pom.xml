@@ -7,7 +7,7 @@
     <groupId>com.github.bakerln</groupId>
     <artifactId>ln-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-RELEASE</version>
+    <version>1.0.2-RELEASE</version>
     <url>https://github.com/bakerln/ln-common</url>
 
     <name>ln-common</name>

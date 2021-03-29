@@ -5,14 +5,14 @@
     <parent>
         <artifactId>ln-common</artifactId>
         <groupId>com.github.bakerln</groupId>
-        <version>1.0.1-RELEASE</version>
+        <version>1.0.2-RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <!-- common-framework下四个包版本保持一致,统一在这里定义,注意：这里修改后，四个pom里的parent也要修改 -->
     <!--本版本不和ln-common 公用-->
     <artifactId>common-framework</artifactId>
     <groupId>com.github.bakerln.framework</groupId>
-    <version>1.0.1-RELEASE</version>
+    <version>1.0.2-RELEASE</version>
     <packaging>pom</packaging>
     <modules>
         <module>common-framework-pojo</module>
@@ -24,13 +24,13 @@
         <module>common-framework-cloud</module>
     </modules>
     <properties>
-        <common-framework-web.version>1.0.1-RELEASE</common-framework-web.version>
-        <common-framework-pojo.version>1.0.1-RELEASE</common-framework-pojo.version>
-        <common-framework-dao.version>1.0.1-RELEASE</common-framework-dao.version>
-        <common-framework-service.version>1.0.1-RELEASE</common-framework-service.version>
-        <common-framework-rpc.version>1.0.1-RELEASE</common-framework-rpc.version>
-        <common-framework-util.version>1.0.1-RELEASE</common-framework-util.version>
-        <common-framework-cloud.version>1.0.1-RELEASE</common-framework-cloud.version>
+        <common-framework-web.version>1.0.2-RELEASE</common-framework-web.version>
+        <common-framework-pojo.version>1.0.2-RELEASE</common-framework-pojo.version>
+        <common-framework-dao.version>1.0.2-RELEASE</common-framework-dao.version>
+        <common-framework-service.version>1.0.2-RELEASE</common-framework-service.version>
+        <common-framework-rpc.version>1.0.2-RELEASE</common-framework-rpc.version>
+        <common-framework-util.version>1.0.2-RELEASE</common-framework-util.version>
+        <common-framework-cloud.version>1.0.2-RELEASE</common-framework-cloud.version>
     </properties>
 
     <dependencyManagement>
