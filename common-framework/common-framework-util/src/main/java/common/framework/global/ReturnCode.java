@@ -30,6 +30,8 @@ public enum  ReturnCode {
     HTTP_FAILED_GATEWAY_TIMEOUT("00506", "网关超时!"),
     HTTP_FAILED_PARAMS_ERROR("00520", "参数错误"),
     HTTP_FAILED_TOO_MANG_REQUESTS("00529", "限制访问！"),
+    HTTP_FAILED_IP_ILLEGAL("00530", "非法IP访问！"),
+
 
     /**
      * 业务状态
