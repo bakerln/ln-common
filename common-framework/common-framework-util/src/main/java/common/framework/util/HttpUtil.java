@@ -30,7 +30,8 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
- * <p>Description: </p>
+ * <p>Description:  Http工具包，包装hutool工具
+ *        包装Http工具包，后期方便替换</p>
  *
  * @author linan
  * @date 2021-01-11

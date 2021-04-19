@@ -40,8 +40,8 @@
         <hutool.version>5.5.7</hutool.version>
 
         <!--数据库-->
-        <mysql-connector-java>6.0.6</mysql-connector-java>
-        <druid-spring-boot-starter>1.1.10</druid-spring-boot-starter>
+        <mybatis-spring-boot-starter>2.1.4</mybatis-spring-boot-starter>
+        <druid-spring-boot-starter>1.2.5</druid-spring-boot-starter>
 
         <!--plugins-->
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
@@ -90,50 +90,7 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-
             </dependency>
-            <!-- spring Cloud-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-eureka-server</artifactId>-->
-            <!--<version>${eureka-server.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-sleuth-dependencies</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-gateway-dependencies</artifactId>-->
-            <!--<version>${spring-cloud.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--</dependency>-->
 
             <!-- lombok -->
             <dependency>
@@ -179,23 +136,17 @@
                 <version>${swagger.markup}</version>
                 <scope>compile</scope>
             </dependency>
-
             <!--数据库-->
-            <!--<dependency>-->
-            <!--<groupId>mysql</groupId>-->
-            <!--<artifactId>mysql-connector-java</artifactId>-->
-            <!--<version>${mysql-connector-java}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>com.alibaba</groupId>-->
-            <!--<artifactId>druid-spring-boot-starter</artifactId>-->
-            <!--<version>${druid-spring-boot-starter}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-data-jdbc</artifactId>-->
-            <!--<version>2.3.2.RELEASE</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
