@@ -42,6 +42,7 @@
         <!--数据库-->
         <mybatis-spring-boot-starter>2.1.4</mybatis-spring-boot-starter>
         <druid-spring-boot-starter>1.2.5</druid-spring-boot-starter>
+        <mybatis-plus-boot-starter>3.4.2</mybatis-plus-boot-starter>
 
         <!--plugins-->
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
@@ -146,6 +147,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid-spring-boot-starter}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
