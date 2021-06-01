@@ -6,8 +6,8 @@ import lombok.Data;
 /**
  * 解析JWT的返回信息
  *
- * @author 宋长军
- * @date 2019/9/24 8:29
+ * @author linan
+ * @date  2020-10-21
  */
 @Data
 @AllArgsConstructor

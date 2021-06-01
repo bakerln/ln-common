@@ -11,15 +11,15 @@ import java.util.UUID;
 /**
  * JWT 工具类
  *
- * @author 宋长军
- * @date 2019/9/24 9:16
+ * @author linan
+ * @date  2020-10-21
  */
 public class JwtUtil {
 
     /**
      * 秘钥
      */
-    private static final String JWT_SECRET = "MT-AUTH-JSON-WEB-TOKEN";
+    private static final String JWT_SECRET = "WEB-TOKEN";
 
     /**
      * 创建 JWT 字符串

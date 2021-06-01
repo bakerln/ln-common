@@ -51,8 +51,6 @@
             <artifactId>springfox-bean-validators</artifactId>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
 
 

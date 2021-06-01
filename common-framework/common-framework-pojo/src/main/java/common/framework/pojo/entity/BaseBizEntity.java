@@ -35,4 +35,9 @@ public class BaseBizEntity extends BaseEntity implements Serializable {
      * 修改时间
      */
     private Date modifiedAt;
+
+    /**
+     * 删除标记
+     */
+    private String deleted;
 }
