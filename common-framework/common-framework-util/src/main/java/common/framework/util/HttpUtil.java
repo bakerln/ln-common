@@ -18,9 +18,7 @@ import cn.hutool.core.util.URLUtil;
 import cn.hutool.http.*;
 import cn.hutool.http.server.SimpleServer;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -47,6 +45,10 @@ public class HttpUtil {
      */
     public static final Pattern META_CHARSET_PATTERN = Pattern.compile("<meta[^>]*?charset\\s*=\\s*['\"]?([a-z0-9-]*)", Pattern.CASE_INSENSITIVE);
 
+    /**
+     * 写Buffer_size
+     */
+    private static final int BUFFER_SIZE = 1024 * 8;
     /**
      * 检测是否https
      *
@@ -890,5 +892,54 @@ public class HttpUtil {
     public static String buildBasicAuth(String username, String password, Charset charset){
         final String data = username.concat(":").concat(password);
         return "Basic " + Base64.encode(data, charset);
+    }
+
+    /**
+     * read string.
+     *
+     * @param reader Reader instance.
+     * @return String.
+     * @throws IOException
+     */
+    public static String read(Reader reader) throws IOException {
+        StringWriter writer = new StringWriter();
+        try {
+            write(reader, writer);
+            return writer.getBuffer().toString();
+        } finally {
+            writer.close();
+        }
+    }
+
+    /**
+     * write.
+     *
+     * @param reader Reader.
+     * @param writer Writer.
+     * @return count.
+     * @throws IOException
+     */
+    public static long write(Reader reader, Writer writer) throws IOException {
+        return write(reader, writer, BUFFER_SIZE);
+    }
+
+    /**
+     * write.
+     *
+     * @param reader     Reader.
+     * @param writer     Writer.
+     * @param bufferSize buffer size.
+     * @return count.
+     * @throws IOException
+     */
+    public static long write(Reader reader, Writer writer, int bufferSize) throws IOException {
+        int read;
+        long total = 0;
+        char[] buf = new char[bufferSize];
+        while ((read = reader.read(buf)) != -1) {
+            writer.write(buf, 0, read);
+            total += read;
+        }
+        return total;
     }
 }

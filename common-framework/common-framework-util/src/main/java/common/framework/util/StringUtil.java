@@ -10,6 +10,31 @@ package common.framework.util;
 public class StringUtil {
 
     /**
+     * A String for a space character.
+     */
+    public static final String SPACE = " ";
+
+    /**
+     * The empty String {@code ""}.
+     */
+    public static final String EMPTY = "";
+
+    /**
+     * A String for linefeed LF ("\n").
+     */
+    public static final String LF = "\n";
+
+    /**
+     * A String for carriage return CR ("\r").
+     */
+    public static final String CR = "\r";
+
+    /**
+     * Represents a failed index search.
+     */
+    public static final int INDEX_NOT_FOUND = -1;
+
+    /**
      * 判断字符串是null或空，null或""都返回true
      *
      * @param str 字符串
