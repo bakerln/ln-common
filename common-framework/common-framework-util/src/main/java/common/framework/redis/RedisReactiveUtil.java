@@ -6,6 +6,7 @@ import io.lettuce.core.SetArgs;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.reactive.RedisReactiveCommands;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,12 +15,19 @@ import java.time.Duration;
 import java.util.List;
 
 /**
- * <p>Description: 反应式Redis工具</p>
+ * <p>Description: 反应式Redis工具
+ * 使用时，需要在启动类扫描该包
+ *  配置:
+ * spring.redis.hosturl  redis地址
+ * spring.redis.ports     redis端口
+ * spring.redis.expire   0为永不过期
+ * </p>
  *
  * @author linan
  * @date 2021-01-15
  */
 @Component
+@ConditionalOnProperty(value = "service.redis.enable",havingValue = "false",matchIfMissing = false)
 public class RedisReactiveUtil {
 
     private RedisReactiveCommands redisReactiveCommands;
@@ -32,9 +40,9 @@ public class RedisReactiveUtil {
      * @param port port
      * @param timeout  expire time in seconds
      */
-    public RedisReactiveUtil (@Value("${spring.redis.hosturl}")String url,
-                           @Value("${spring.redis.ports}")int port,
-                           @Value("${spring.redis.expire}")int timeout){
+    public RedisReactiveUtil (@Value("${service.redis.hosturl}")String url,
+                           @Value("${service.redis.ports}")int port,
+                           @Value("${service.redis.expire}")int timeout){
         RedisURI redisUri = RedisURI.builder()
                 .withHost(url)
                 .withPort(port)

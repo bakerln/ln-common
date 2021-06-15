@@ -21,7 +21,7 @@ import java.util.List;
  * @param <S> 请求泛型参数
  */
 @Component
-@ConditionalOnProperty("spring.datasource")
+@ConditionalOnProperty(value = "service.datasource.enable",havingValue = "true",matchIfMissing = true)
 public class BaseDao<T, S> {
     /**
      * 注入jdbctemp

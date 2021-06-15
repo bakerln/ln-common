@@ -7,18 +7,26 @@ import io.lettuce.core.SetArgs;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.async.RedisAsyncCommands;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.List;
 
 /**
- * <p>Description: 异步Redis Util</p>
+ * <p>Description: 异步Redis Util
+ * 使用时，需要在启动类扫描该包
+ *  配置:
+ * spring.redis.hosturl  redis地址
+ * spring.redis.ports     redis端口
+ * spring.redis.expire   0为永不过期
+ * </p>
  *
  * @author linan
  * @date 2021-01-15
  */
 @Component
+@ConditionalOnProperty(value = "service.redis.enable",havingValue = "false",matchIfMissing = false)
 public class RedisAsyncUtil {
 
     private RedisAsyncCommands redisAsyncCommands;
@@ -31,9 +39,9 @@ public class RedisAsyncUtil {
      * @param port port
      * @param timeout  expire time in seconds
      */
-    public RedisAsyncUtil (@Value("${spring.redis.hosturl}")String url,
-                          @Value("${spring.redis.ports}")int port,
-                          @Value("${spring.redis.expire}")int timeout){
+    public RedisAsyncUtil (@Value("${service.redis.hosturl}")String url,
+                          @Value("${service.redis.ports}")int port,
+                          @Value("${service.redis.expire}")int timeout){
         RedisURI redisUri = RedisURI.builder()
                 .withHost(url)
                 .withPort(port)

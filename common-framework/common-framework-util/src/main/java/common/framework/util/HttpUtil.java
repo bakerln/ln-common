@@ -895,7 +895,7 @@ public class HttpUtil {
     }
 
     /**
-     * read string.
+     *  获取RequestBody中的数据.
      *
      * @param reader Reader instance.
      * @return String.
@@ -919,7 +919,7 @@ public class HttpUtil {
      * @return count.
      * @throws IOException
      */
-    public static long write(Reader reader, Writer writer) throws IOException {
+    private static long write(Reader reader, Writer writer) throws IOException {
         return write(reader, writer, BUFFER_SIZE);
     }
 
@@ -932,7 +932,7 @@ public class HttpUtil {
      * @return count.
      * @throws IOException
      */
-    public static long write(Reader reader, Writer writer, int bufferSize) throws IOException {
+    private static long write(Reader reader, Writer writer, int bufferSize) throws IOException {
         int read;
         long total = 0;
         char[] buf = new char[bufferSize];

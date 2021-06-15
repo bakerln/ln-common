@@ -27,6 +27,10 @@
         </dependency>
         <!--工具依赖-->
         <dependency>
+            <groupId>com.github.bakerln.framework</groupId>
+            <artifactId>common-framework-util</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <scope>compile</scope>
