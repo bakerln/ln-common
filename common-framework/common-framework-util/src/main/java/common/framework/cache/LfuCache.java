@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * @date 2021-01-12
  */
 @Component
-@ConditionalOnProperty(value = "service.cache.enable",havingValue = "false",matchIfMissing = false)
+@ConditionalOnProperty(value = "service.cache.enable",havingValue = "true",matchIfMissing = false)
 public class LfuCache extends LFUCache {
 
 

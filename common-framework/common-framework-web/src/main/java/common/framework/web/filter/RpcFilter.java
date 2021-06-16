@@ -2,8 +2,8 @@ package common.framework.web.filter;
 
 import common.framework.util.HttpUtil;
 import common.framework.util.JsonUtil;
+import common.framework.util.StringUtil;
 import common.framework.wrapper.ResultWrapperUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanCreationException;
@@ -100,7 +100,7 @@ public class RpcFilter implements Filter {
             return;
         }
         //内部rpc调用，任何情况下，都要返回一个ResultWrapper
-        String[] serviceNameAndMethod = url.replace(rpc_url_pre, StringUtils.EMPTY).split("/");
+        String[] serviceNameAndMethod = url.replace(rpc_url_pre, StringUtil.EMPTY).split("/");
         logger.info("serviceNameAndMethod={}::{}", serviceNameAndMethod[1], serviceNameAndMethod[2]);
         response.setContentType(contentType);
         PrintWriter printWriter = response.getWriter();
@@ -117,7 +117,6 @@ public class RpcFilter implements Filter {
                 Map<String, Object> beanMap = defaultListableBeanFactory.getBeansOfType(serviceClass);
                 AtomicReference<Object> service = new AtomicReference<>();
                 for (Map.Entry entry:  beanMap.entrySet()) {
-                    logger.error(entry.getValue().getClass().getName());
                     //SpringCloud已经自动生成了一个代理，所以这里要过滤掉这个自动生成的代理类
                     if (!entry.getValue().getClass().getName().contains(Bean_Proxy)) {
                         service.set(entry.getValue());
@@ -159,8 +158,10 @@ public class RpcFilter implements Filter {
             //读取request的参数信息
             Map<String, String[]> parameterMap = request.getParameterMap();
             //读body体里的内容
-            String bodyParam = HttpUtil.read(request.getReader());
-
+            String bodyParam = StringUtil.EMPTY;
+            if (parameterMap.size()==0){
+                bodyParam = HttpUtil.read(request.getReader());
+            }
             //建一个空数组，用来存参数，反射调用方法的时候使用的参数
             Object[] parameters4Method = new Object[parameterTypes.length];
 

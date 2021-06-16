@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
  * @date 2021-01-14
  */
 @Component
-@ConditionalOnProperty(value = "service.redis.enable",havingValue = "false",matchIfMissing = false)
+@ConditionalOnProperty(value = "service.redis.enable",havingValue = "true",matchIfMissing = false)
 public class RedisSyncUtil {
 
     private RedisCommands redisCommands;
